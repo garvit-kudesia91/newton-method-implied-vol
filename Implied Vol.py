@@ -25,7 +25,7 @@ def call_bsm (S0,K,r,T,Otype,sig):
         return (price)
 
 def vega (S0,K,r,T,sig):
-    d1 = Decimal(m.log(S0/K)) + (r+ (sig*sig)/2)*T/(sig*Decimal(m.sqrt(T)))
+    d1 = Decimal(m.log(S0/K))/(sig*Decimal(m.sqrt(T))) + Decimal((r+ (sig*sig)/2)*T/(sig*Decimal(m.sqrt(T))))
     vega = S0*Decimal(ss.norm.pdf(np.float(d1)))*Decimal(m.sqrt(T))
     return(vega)
     
